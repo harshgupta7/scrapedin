@@ -51,6 +51,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const volunteerExperience = await scrapSection(page, template.volunteerExperience)
   const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
   const contact = hasToGetContactInfo ? await contactInfo(page) : []
+  const highlights = await scrapSection(page, template.highlights)
 
   await page.close()
   logger.info(`finished scraping url: ${url}`)
@@ -73,7 +74,8 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     projects,
     peopleAlsoViewed,
     volunteerExperience,
-    contact
+    contact,
+    highlights
   }
 
   const cleanedProfile = cleanProfileData(rawProfile)

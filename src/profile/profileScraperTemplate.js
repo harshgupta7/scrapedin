@@ -21,6 +21,12 @@ const template = {
       text: 'p'
     }
   },
+  highlights: {
+    selector: '.pv-highlights-section',
+    fields: {
+      text:'ul'
+    }
+  },
   positions: {
     selector: '#experience-section li:not(.pv-entity__position-group-role-item)',
     fields: {
